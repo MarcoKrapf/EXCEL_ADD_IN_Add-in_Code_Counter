@@ -1,6 +1,6 @@
 # Add-in Code Counter
 
-[Excel-Add-In (.xlam)](http://marco-krapf.de/excel/) for counting the lines of code in Excel Add-ins (.xlam)
+[Excel-Add-In (.xlam)](https://marco-krapf.de/excel/) for counting the lines of code in Excel Add-ins (.xlam)
 
 This add-in adds a new group "Add-in Code Counter" to the "Developer" tab with options for counting LOC (lines of code) of installed xlam-Add-ins.
 
