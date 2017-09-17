@@ -1,0 +1,38 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="CodeCounter_onLoad">
+  <ribbon startFromScratch="false">
+    <tabs>
+      <tab idMso="TabDeveloper">
+        <group id="CodeCounter" label="Add-in Code Counter">
+
+		<dropDown id="comboCodeCounter"
+			label="Select Add-in"
+                        getItemCount="AddIn_getItemCount"
+                        getItemLabel="AddIn_getItemLabel"
+                        onAction="AddIn_Click"
+			sizeString="MMMMMMMMMMMMMM"
+			screentip="Select the Excel-Add-in for which the VBA code is to be counted"
+				/>
+
+		<checkBox id="chkComponents" label="Count code of components individually"
+			onAction="Checkboxes"
+			screentip="If ticked, the code of each component of the VBA Project is counted individually, such as modules, class modules, user forms, worksheets and so on, and summed at the end"
+				/>
+
+		<checkBox id="chkTextfile" label="Write results in a text file"
+			onAction="Checkboxes"
+			screentip="If ticked, the results are written to a plain text file"
+				/>
+        
+		<button id="btnCodeCounter"
+                     	label="Count!"
+                     	size="large"
+                     	onAction="Count_Click"
+                     	image="imgCount"
+			screentip="Start counting the VBA code of the selected Excel-add-in"
+				/>
+	 
+	  </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
