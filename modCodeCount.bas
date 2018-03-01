@@ -5,7 +5,7 @@ Option Private Module
 'Excel Add-in Code Counter
 '
 'Tool for counting the lines of code in Excel Add-ins (.xlam)
-'Version 1.0 (July 2017)
+'Version 1.1 (March 2018)
 '
 'Author: Marco Krapf
 'excel@marco-krapf.de
@@ -191,6 +191,9 @@ End Sub
 
 'Callback for btnCodeCounter onAction
 Public Sub Count_Click(control As IRibbonControl)
+
+    On Error GoTo errormessage
+    
     If selAddIn = "" Then
         MsgBox "Please select Add-in", vbExclamation
     Else
@@ -200,6 +203,22 @@ Public Sub Count_Click(control As IRibbonControl)
             Call ExcelCodeCount(selAddIn) 'Start counting code of this Add-in
         End If
     End If
+    
+    Exit Sub
+
+errormessage:
+    If Err.Number = 1004 Then
+        MsgBox "Error " & Err.Number & vbNewLine & Err.Description & vbNewLine & vbNewLine & _
+            "You need to TRUST ACCESS TO THE VBA PROJECT OBJECT MODEL!" & vbNewLine & vbNewLine & _
+            "Please try the following:" & vbNewLine & _
+            "  --> Excel Options" & vbNewLine & _
+            "    --> Trust Center" & vbNewLine & _
+            "      --> Macro Settings" & vbNewLine & _
+            "        --> Tick the checkbox 'Trust access to the VBA project object model'"
+    Else
+        MsgBox Err.Number & vbNewLine & Err.Description
+    End If
+
 End Sub
 
 'Callback for chkComponents onAction
@@ -219,3 +238,4 @@ Public Sub Checkboxes(control As IRibbonControl, pressed As Boolean)
             End If
     End Select
 End Sub
+
