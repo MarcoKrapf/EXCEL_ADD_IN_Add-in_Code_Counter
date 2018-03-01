@@ -7,7 +7,7 @@ This add-in adds a new group "Add-in Code Counter" to the "Developer" tab with o
 ## Version history
 
 ### Version 1.1 (01 March 2018)
-* Error message in case the checkbox 'Trust access to the VBA project object model' is not ticked
+* Error message in case if the checkbox 'Trust access to the VBA project object model' is not ticked
 
 ### Version 1.0 (30 July 2017)
 * Counting lines of code (active source code, comment lines, blank lines, total lines) of a whole VBA project
